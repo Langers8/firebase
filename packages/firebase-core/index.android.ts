@@ -270,7 +270,10 @@ export class Firebase {
 			if (path.startsWith('~/')) {
 				path = knownFolders.currentApp().path + '/' + path.replace('~/', '');
 			}
-			json = require(path);
+			var request = new XMLHttpRequest();
+		  request.open("GET", "../../data/file.json", false);
+		  request.send(null)
+		  json = JSON.parse(request.responseText);
 		}
 
 
